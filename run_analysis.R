@@ -1,6 +1,7 @@
 # Load libraries ---------------------------------------------------------------
 
 library(data.table)
+library(plyr)
 
 
 # Load data --------------------------------------------------------------------
@@ -16,23 +17,46 @@ test_activities <- read.table('./UCI HAR Dataset/test/y_test.txt')
 feature_names <- read.table('./UCI HAR Dataset/features.txt')
 
 
+
 # Pre-process data -------------------------------------------------------------
 
 # Drop the row number column and convert result into character vector to ensure
 # setting of column names later
 feature_names <- as.character(feature_names[, 2])
 
-training_set <- cbind(training_subjects, training_set, training_activities)
-test_set <- cbind(test_subjects, test_set, test_activities)
+training_set <- cbind(training_subjects, training_activities, training_set)
+test_set <- cbind(test_subjects, test_activities, test_set)
+
 
 
 ## Process the data according to peer assessment instructions ------------------
 
-# Merge the training and the test sets
+# 1. Merge the training and the test sets
 merged_set <- rbind(training_set, test_set)
-colnames(merged_set) <- c('subject', feature_names, 'activity')
+colnames(merged_set) <- c('subject', 'activity', feature_names)
 
-# Extract only the measurements on the mean and standard deviation for each 
-# measurement 
+# 2. Extract only the measurements on the mean and standard deviation for each 
+#    measurement 
+focus_features <- grepl('(.*?)-(mean|std)(.*?)', feature_names)
+merged_set <- merged_set[, c(TRUE, TRUE, focus_features)]
 
-grepl('(.*?)-(mean|std)(.*?)', feature_names[1:10])
+# 3./4. Uses descriptive activity names to name the activities in the data set
+#       Appropriately labels the data set with descriptive activity names
+merged_set$activity <- mapvalues(merged_set$activity , c(1, 2, 3, 4, 5, 6),
+                                 c('walking', 'walking upstairs', 
+                                   'walking downstairs', 'sitting', 'standing',
+                                   'laying'))
+
+# 5. Create a second, independent tidy data set with the average of each variable
+#    for each activity and each subject
+merged_set <- as.data.table(merged_set)
+merged_set <- merged_set[, lapply(.SD, mean), by = list(activity, subject) ]
+write.table(merged_set, file = "./data/tidy_samsung_data.txt", quote = FALSE,
+            row.names = FALSE, sep='\t')
+
+
+
+
+
+
+
