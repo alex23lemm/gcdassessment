@@ -52,7 +52,7 @@ colnames(merged_set) <- sub('std', 'Std', colnames(merged_set))
 # 5. Create a second, independent tidy data set with the average of each 
 #    variable for each activity and each subject
 tidy_set <- ddply(merged_set, c('activity', 'subject'), numcolwise(mean))
-write.table(tidy_set, file = "./data/tidy_samsung_data.txt", quote = FALSE,
+write.table(tidy_set, file = "tidy_samsung_data.txt", quote = FALSE,
             row.names = FALSE, sep='\t')
 
 
