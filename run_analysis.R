@@ -38,13 +38,13 @@ colnames(merged_set) <- c('subject', 'activity', feature_names)
 focus_features <- grepl('(.*)-(mean|std)\\(\\)(.*)', feature_names)
 merged_set <- merged_set[, c(TRUE, TRUE, focus_features)]
 
-# 3. Uses descriptive activity names to name the activities in the data set
+# 3. Use descriptive activity names to name the activities in the data set
 merged_set$activity <- mapvalues(merged_set$activity , c(1, 2, 3, 4, 5, 6),
                                  c('walking', 'walking upstairs', 
                                    'walking downstairs', 'sitting', 'standing',
                                    'laying'))
 
-# 4. Appropriately labels the data set with descriptive activity names
+# 4. Appropriately label the data set with descriptive activity names
 colnames(merged_set) <- gsub('[-()]', '', colnames(merged_set))
 colnames(merged_set) <- sub('mean', 'Mean', colnames(merged_set))
 colnames(merged_set) <- sub('std', 'Std', colnames(merged_set))
