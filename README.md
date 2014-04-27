@@ -1,4 +1,15 @@
+# Getting and Cleaning Data Assessment Project
 
+The purpose of this project is to collect and clean human activity data orginally collected during an experiment for building a system for human physical Activity Recognition (AR) using inertial sensors of a Galaxy S2 smartphone.
+
+A full description of the original experiment can be found in the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+
+This repository contains the following files:
+
+* `run_analayis.R`: R script tranforming the original data into a tidy data set according to the peer assessment instructions
+* `CodeBook.md`: Describes the variables, the data, and the transformations that were performed to clean up the original data
+
+  
 ## Installation
 
 ### R libraries
@@ -18,7 +29,7 @@ Download `run_analysis.R` from this repository and put it into your R working di
 
 After a succesful installation your working directory should contain the following files and folders:
 
-*Note: Only the first two folder levels below the root level are shown below.*
+*Note: Only the first two folder levels below the root level are shown here.*
 
 * run_analysis.R
 * UCI HAR Dataset
