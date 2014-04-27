@@ -13,7 +13,7 @@ Download `run_analysis.R` from this repository and put it into your R working di
 
 ### Data
 
-* Downlad the original project data from this location
+* Downlad the original project data from [this location](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 * Extract the downloaded archive to your working directory
 
 After a succesful installation your working directory should contain the following files and folders at the root level:
