@@ -2,7 +2,7 @@
 
 The purpose of this project is to collect and clean human activity data orginally collected during an experiment for building a system for human physical Activity Recognition (AR) using inertial sensors of a Galaxy S2 smartphone.
 
-A full description of the original experiment can be found in the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+A full description of the original experiment can be found in the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
 This repository contains the following files:
 
