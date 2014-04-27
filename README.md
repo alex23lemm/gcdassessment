@@ -6,7 +6,7 @@ A full description of the original experiment can be found in the [UCI Machine L
 
 This repository contains the following files:
 
-* `run_analayis.R`: R script tranforming the original data into a tidy data set according to the peer assessment instructions
+* `run_analyis.R`: R script tranforming the original data into a tidy data set according to the peer assessment instructions
 * `CodeBook.md`: Describes the variables, the data, and the transformations that were performed to clean up the original data
 
   
